@@ -1,6 +1,6 @@
 import httpCommon from '@/helpers/http'
 
-let url = '/api/auth'
+let url = '/auth'
 let http = httpCommon.http_backend
 
 class AuthService {
