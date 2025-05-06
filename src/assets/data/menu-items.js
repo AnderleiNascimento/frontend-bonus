@@ -1,0 +1,90 @@
+export const MENU_ITEMS = [
+    {
+        key: "main",
+        label: "Menu Principal",
+        isTitle: true,
+    },
+    {
+        key: "dashboards",
+        icon: "iconoir-home-simple",
+        label: "Dashboards",
+        children: [
+            {
+                key: "dashboards.cashback",
+                label: "Gestão de Pedidos",
+                route: { name: "dashboards.cashback" },
+                parentKey: "dashboards",
+            },
+            {
+                key: "dashboards.loyalty",
+                label: "Fidelização",
+                route: { name: "dashboards.loyalty" },
+                parentKey: "dashboards",
+            },
+        ],
+    },
+    {
+        key: "features",
+        label: "Funcionalidades",
+        isTitle: true,
+    },
+    {
+        key: "registers",
+        icon: "fas fa-clipboard-list",
+        label: "Cadastros",
+        roles: ["super_admin", "admin"],
+        permissions: ["list_customers", "list_stores", "list_users"],
+        children: [
+            {
+                key: "registers-customers",
+                label: "Lista de clientes",
+                route: { name: "registers-customers" },
+                parentKey: "registers",
+                roles: ["super_admin", "admin"],
+                permissions: ["list_customers"],
+            },
+            {
+                key: "registers-stores",
+                label: "Lista de lojas",
+                route: { name: "registers-stores" },
+                parentKey: "registers",
+                roles: ["super_admin", "admin"],
+                permissions: ["list_stores"],
+            },
+            {
+                key: "registers-users",
+                label: "Lista de usuários",
+                route: { name: "registers-users" },
+                parentKey: "registers",
+                roles: ["super_admin", "admin"],
+                permissions: ["list_users"],
+            },
+        ],
+    },
+    {
+        key: "orders",
+        icon: "fa fa-receipt",
+        label: "Gestão de Pedidos",
+        roles: ["super_admin", "admin"],
+        permissions: ["orders"],
+        permissions: ["list_orders", "list_cashbacks"],
+        children: [
+            {
+                key: "orders-orders",
+                label: "Lista de pedidos",
+                route: { name: "order-list" },
+                parentKey: "orders",
+                roles: ["super_admin", "admin"],
+                permissions: ["list_orders"],
+            },
+            {
+                key: "cashback-list",
+                label: "Lista de cashbacks",
+                route: { name: "cashback-list" },
+                parentKey: "orders",
+                roles: ["super_admin", "admin"],
+                permissions: ["list_cashbacks"],
+            },
+        ],
+    },
+]
